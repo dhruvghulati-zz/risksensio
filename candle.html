@@ -38,28 +38,28 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-2">
-                <div id="westminsterChart" style="height: 300px; width: 250px;">
+                <div id="westminsterChart" style="height: 300px; width: 220px;">
                 </div>
             </div>
             <div class="col-xs-2">
-                <div id="fcaChart" style="height: 300px; width: 250px;">
+                <div id="fcaChart" style="height: 300px; width: 220px;">
                 </div>
             </div>
             <div class="col-xs-2">
-                <div id="dbChart" style="height: 300px; width: 250px;">
+                <div id="dbChart" style="height: 300px; width: 220px;">
                 </div>
 
             </div>
             <div class="col-xs-2">
-                <div id="tflChart" style="height: 300px; width: 250px;">
+                <div id="tflChart" style="height: 300px; width: 220px;">
                 </div>
             </div>
             <div class="col-xs-2">
-                <div id="britinsurChart" style="height: 300px; width: 250px;">
+                <div id="britinsurChart" style="height: 300px; width: 220px;">
                 </div>
             </div>
             <div class="col-xs-2">
-                <div id="hoxtonChart" style="height: 300px; width: 250px;">
+                <div id="hoxtonChart" style="height: 300px; width: 220px;">
                 </div>
             </div>
         </div>
@@ -183,7 +183,7 @@
         var hoxvibs = [];
 
         var westchart = new CanvasJS.Chart("westminsterChart", {
-//            backgroundColor: "#f2f2f2",
+            //            backgroundColor: "#f2f2f2",
             title: {
                 text: "Westminster Cathedral",
                 fontFamily: "Roboto",
@@ -191,10 +191,12 @@
             },
             axisY2: {
                 includeZero: false,
-                title: "Building Vibrations"
+                title: "Building Vibrations",
+                titleFontSize: 10
             },
             axisY: {
-                title: "Humidity"
+                title: "Humidity",
+                titleFontSize: 10
             },
             data: [
                 {
@@ -212,6 +214,10 @@
             token: toke,
             deviceId: westminster,
             incomingData: function (data) {
+                console.log(data.readings[0].meaning);
+                console.log(data.readings[0].value);
+                console.log(data.readings[1].meaning);
+                console.log(data.readings[1].value);
                 tempVal = data.readings[0].value;
                 vibVal = data.readings[1].value;
                 westvibs.push({
@@ -234,7 +240,7 @@
 
         //door
         var fcachart = new CanvasJS.Chart("fcaChart", {
-//            backgroundColor: "#f2f2f2",
+            //            backgroundColor: "#f2f2f2",
             title: {
                 text: "FCA Building",
                 fontFamily: "Roboto",
@@ -242,10 +248,12 @@
             },
             axisY2: {
                 includeZero: false,
-                title: "Building Vibrations"
+                title: "Building Vibrations",
+                titleFontSize: 10
             },
             axisY: {
-                title: "Humidity"
+                title: "Humidity",
+                titleFontSize: 10
             },
             data: [
                 {
@@ -263,13 +271,18 @@
             token: toke,
             deviceId: fca,
             incomingData: function (data) {
-                console.log(data.readings[0].value);
                 //                console.log(candle5);
                 if (data.readings[0].value) {
                     candle2.setIcon(warningIcon);
                 } else {
                     candle2.setIcon(candle2Icon);
                 }
+                console.log(data.readings[0].meaning);
+                console.log(data.readings[0].value);
+                console.log(data.readings[3].meaning);
+                console.log(data.readings[3].value);
+                console.log(data.readings[2].meaning);
+                console.log(data.readings[2].value);
                 tempVal = data.readings[3].value;
                 vibVal = data.readings[2].value;
                 fcavibs.push({
@@ -291,7 +304,7 @@
         });
 
         var deuchart = new CanvasJS.Chart("dbChart", {
-//            backgroundColor: "#f2f2f2",
+            //            backgroundColor: "#f2f2f2",
             title: {
                 text: "Deutsche Bank Building",
                 fontFamily: "Roboto",
@@ -299,10 +312,12 @@
             },
             axisY2: {
                 includeZero: false,
-                title: "Building Vibrations"
+                title: "Building Vibrations",
+                titleFontSize: 10
             },
             axisY: {
-                title: "Humidity"
+                title: "Humidity",
+                titleFontSize: 10
             },
             data: [
                 {
@@ -325,6 +340,12 @@
                 } else {
                     candle3.setIcon(candle3Icon);
                 }
+                console.log(data.readings[0].meaning);
+                console.log(data.readings[0].value);
+                console.log(data.readings[3].meaning);
+                console.log(data.readings[3].value);
+                console.log(data.readings[2].meaning);
+                console.log(data.readings[2].value);
                 tempVal = data.readings[3].value;
                 vibVal = data.readings[2].value;
                 deuvibs.push({
@@ -346,7 +367,7 @@
         });
 
         var tflchart = new CanvasJS.Chart("tflChart", {
-//            backgroundColor: "#f2f2f2",
+            //            backgroundColor: "#f2f2f2",
             title: {
                 text: "TFL Building",
                 fontFamily: "Roboto",
@@ -354,10 +375,12 @@
             },
             axisY2: {
                 includeZero: false,
-                title: "Building Vibrations"
+                title: "Building Vibrations",
+                titleFontSize: 10
             },
             axisY: {
-                title: "Humidity"
+                title: "Humidity",
+                titleFontSize: 10
             },
             data: [
                 {
@@ -380,6 +403,12 @@
                 } else {
                     candle4.setIcon(candle4Icon);
                 }
+                console.log(data.readings[0].meaning);
+                console.log(data.readings[0].value);
+                console.log(data.readings[3].meaning);
+                console.log(data.readings[3].value);
+                console.log(data.readings[2].meaning);
+                console.log(data.readings[2].value);
                 tempVal = data.readings[3].value;
                 vibVal = data.readings[2].value;
                 tflvibs.push({
@@ -401,7 +430,7 @@
         });
 
         var britchart = new CanvasJS.Chart("britinsurChart", {
-//            backgroundColor: "#f2f2f2",
+            //            backgroundColor: "#f2f2f2",
             title: {
                 text: "British Insurance Building",
                 fontFamily: "Roboto",
@@ -409,10 +438,12 @@
             },
             axisY2: {
                 includeZero: false,
-                title: "Building Vibrations"
+                title: "Building Vibrations",
+                titleFontSize: 10
             },
             axisY: {
-                title: "Humidity"
+                title: "Humidity",
+                titleFontSize: 10
             },
             data: [
                 {
@@ -435,6 +466,12 @@
                 } else {
                     candle5.setIcon(candle5Icon);
                 }
+                console.log(data.readings[0].meaning);
+                console.log(data.readings[0].value);
+                console.log(data.readings[3].meaning);
+                console.log(data.readings[3].value);
+                console.log(data.readings[2].meaning);
+                console.log(data.readings[2].value);
                 tempVal = data.readings[3].value;
                 vibVal = data.readings[2].value;
                 britvibs.push({
@@ -456,7 +493,7 @@
         });
 
         var hoxtonchart = new CanvasJS.Chart("hoxtonChart", {
-//            backgroundColor: "#f2f2f2",
+            //            backgroundColor: "#f2f2f2",
             title: {
                 text: "Real Hoxton Building",
                 fontFamily: "Roboto",
@@ -464,10 +501,12 @@
             },
             axisY2: {
                 includeZero: false,
-                title: "Building Vibrations"
+                title: "Building Vibrations",
+                titleFontSize: 10
             },
             axisY: {
-                title: "Humidity"
+                title: "Humidity",
+                titleFontSize: 10
             },
             data: [
                 {
@@ -490,6 +529,12 @@
                 } else {
                     candle6.setIcon(candle6Icon);
                 }
+                console.log(data.readings[0].meaning);
+                console.log(data.readings[0].value);
+                console.log(data.readings[3].meaning);
+                console.log(data.readings[3].value);
+                console.log(data.readings[2].meaning);
+                console.log(data.readings[2].value);
                 tempVal = data.readings[3].value;
                 vibVal = data.readings[2].value;
                 hoxvibs.push({
